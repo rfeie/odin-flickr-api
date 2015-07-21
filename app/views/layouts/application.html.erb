@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OdinFlickrApi</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+	<p>
+		Flickr API Test App
+	</p>
+</header>
+<div class="wrapper">
+	<%flash.each do |message_type, message|%>
+		<div class="flash"><%= message %></div>
+	<%end%>
+	
+	<%= yield %>
+
+</div>
+</body>
+</html>

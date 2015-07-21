@@ -1,0 +1,13 @@
+<%= form_for(:flickr, method: "get", url: '/') do |f| %>
+	<%= f.label "Enter Desired User's Flickr ID"%><br>
+	<%= f.text_field :user_id %><br>
+	<%= f.submit "Find user's photos"%>
+<% end %>
+
+<% if !@flickr_id.nil? %>
+	<hr>
+	<h2>User Photos</h2>
+	<% cache('flickr_sidebar') do %>
+		<%= render_flickr_sidebar_widget(@flickr_id, 12, 6)%>
+	<% end %>
+<%end%>
